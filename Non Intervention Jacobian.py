@@ -38,17 +38,17 @@ Ensure the correct parameters are commented out in Lines 23-24
 #x_0, z_0 = (2004.54, 5139.99) #E_1
 #x_0, z_0 = (13170.77, 5139.93) #E_2
 #x_0, z_0 = (747776127.28, 1219.56) #E_3
-x_0, z_0 = (0,1219.51) #E_4
+#x_0, z_0 = (0,1219.51) #E_4
 
 #print(J(x_0,z_0))
 
-# Coefficients of the two characteristic equations to find their roots (eigenvalues)
-coefficients_1 = [1,  0.972724064268509, 0.445634059727609]
-coefficients_2 = [1, 0.972776396941385, -0.445640836780393]
-coefficients_3 = [1, 4.4918857085892, 1.60729830709304]
-coefficients_4 = [1, 3.707951, -1.6074009]
+# Coefficient numbers match equation numbers in Overleaf file
+# coefficients_7 = [1,  0.972724064268509, 0.445634059727609]
+# coefficients_8 = [1, 0.972776396941385, -0.445640836780393]
+# coefficients_9 = [1, 4.4918857085892, 1.60729830709304]
+# coefficients_10 = [1, 3.707951, -1.6074009]
 
-#print(np.roots(coefficients_2))
+# print(np.roots(coefficients_4))
 
 '''
 Equilibria for C and D from Figure 1
@@ -61,9 +61,10 @@ Ensure the correct parameters are commented out in Lines 23-24
 
 #print(J(x_0,z_0))
 
-coefficients_1 = [1, 0.972791607965718, 0.352707926013966]
-coefficients_2 = [1, 0.972790945979541, -0.30193257399118]
-coefficients_3 = [1, 3.34719073052093, 1.04190765808692]
-coefficients_4 = [1, 4.586, -2.07]
+# coefficient numbers match equations in Overleaf file
+coefficients_11 = [1, 0.972791607965718, 0.352707926013966]
+coefficients_12 = [1, 0.972790945979541, -0.30193257399118]
+coefficients_13 = [1, 3.34719073052093, 1.04190765808692]
+coefficients_14 = [1, 4.586, -2.07]
 
-# print(np.roots(coefficients_1))
+#print(np.roots(coefficients_14))
