@@ -17,6 +17,7 @@ def F(z, k, d_e):
 
 def find_equilibria_2(num_starts=25000, bounda=1000, boundb=5500):
     # Initialize lists
+    roots = []
     message_list = []
     d_e_y = []
     k_x = []
@@ -29,13 +30,12 @@ def find_equilibria_2(num_starts=25000, bounda=1000, boundb=5500):
         sol = root(F, x0=guess, method='lm',options={'xtol': 1e-14,'ftol': 1e-14}, args=(k, d_e))
         # Determine if there is a duplicate root and if not, add to root list
         if sol.success==True:
-            r = sol.x
-            #print(np.shape(r))
-            #roots.append(r)
-            #roots.append([B,d,m])
-            message_list.append(sol.message)
-            k_x.append(k)
-            d_e_y.append(d_e)
+            r = round(sol.x)
+            if r not in roots:
+                roots.append(r)
+                #message_list.append(sol.message)
+                k_x.append(k)
+                d_e_y.append(d_e)
     return (k_x, d_e_y, message_list)
 
 equilibria = find_equilibria_2()
@@ -46,8 +46,8 @@ k_x = equilibria[0]
 plt.plot(k_x,d_e_y, '.')
 plt.xlabel("k")
 plt.ylabel("d_e")
-plt.xticks([.001,.01,.1,1,10,100,1000])
-plt.yticks([.00001,0.0001,0.001,1.01])
-plt.title("Recreation of Figure 2(c)")
+# plt.xticks([.001,.01,.1,1,10,100,1000])
+# plt.yticks([.00001,0.0001,0.001,1.01])
+plt.title("Recreation of Figure A1 (Garcia paper)")
 plt.grid(True)
 plt.show()
