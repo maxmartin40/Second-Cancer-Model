@@ -15,7 +15,7 @@ def F(z, k, d_e):
     qty = s_0 - d_0*z + (b_e*(r-k*z)/(b*r)*z)/(k_e+(r-k*z)/(b*r)) - (d_e*(r-k*z)/(b*r)*z)/(k_d+(r-k*z)/(b*r))
     return qty
 
-def find_equilibria_2(num_starts=25000, bounda=1000, boundb=5500):
+def find_equilibria_2(num_starts=2500, bounda=1000, boundb=5500):
     # Initialize lists
     roots = []
     message_list = []
@@ -24,18 +24,17 @@ def find_equilibria_2(num_starts=25000, bounda=1000, boundb=5500):
     # Generate random guesses inside range from above
     for i in range(num_starts):
         k = random.uniform(10**(-5), 10**(-2))
-        d_e = random.uniform(10**(-2), 1000)
+        # d_e = random.uniform(10**(-2), 1000)
+        d_e = 100
         guess = random.uniform(bounda,boundb)
         # Run a solution to the system
         sol = root(F, x0=guess, method='lm',options={'xtol': 1e-14,'ftol': 1e-14}, args=(k, d_e))
         # Determine if there is a duplicate root and if not, add to root list
         if sol.success==True:
             r = sol.x
-            solution = round(r[0])
-            if solution not in roots:
-                roots.append(r)
-                k_x.append(k)
-                d_e_y.append(d_e)
+            #roots.append(r)
+            k_x.append(k)
+            d_e_y.append(r[0])
     #print(roots)
     return (k_x, d_e_y, message_list)
 
@@ -47,6 +46,7 @@ k_x = equilibria[0]
 plt.plot(k_x,d_e_y, '.')
 plt.xlabel("k")
 plt.ylabel("d_e")
-plt.title("Recreation of Figure A1 (Garcia paper)")
+#plt.title("Recreation of Figure A1 (Garcia paper)")
+plt.ylim(0,5000)
 plt.grid(True)
 plt.show()
