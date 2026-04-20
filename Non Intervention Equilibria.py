@@ -44,8 +44,8 @@ equilibria = find_equilibria_2()
 d_e_y = equilibria[1]
 k_x = equilibria[0]
 plt.plot(k_x,d_e_y, '.')
-plt.xlabel("k")
-plt.ylabel("d_e")
+plt.xlabel('k')
+plt.ylabel('z')
 #plt.title("Recreation of Figure A1 (Garcia paper)")
 plt.ylim(0,5000)
 plt.grid(True)
