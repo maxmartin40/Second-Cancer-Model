@@ -11,9 +11,9 @@ bet=6*10**(-6); d_e=2; b_e=1; k_e=5*10**2; k_d=2.5*10**4
 r =0.514
 
 # Define model 2.1 in Wei paper
-dxdt = r*x*(1-b*(x+y))*(g+x) - (bet*x*v)*(g+x)/(g+x) - k*x*z*(g+x)
-dydt = (bet*x*v)*(g+x)/(g+x) - a*y*(g+x) - c*y*z*(g+x)
+dxdt = r*x*(1-b*(x+y)) - (bet*x*v)/(g+x) - k*x*z
+dydt = (bet*x*v)/(g+x) - a*y - c*y*z
 dvdt = q*a*y - sigma*v - gamm*v*z
-dzdt = s_0*(h+y)*(k_d+x)*(k_e+x) - d_0*z*(h+y)*(k_d+x)*(k_e+x) + (b_e*x*z)*(h+y)*(k_d+x)*(k_e+x)/(k_e+x) - (d_e*x*z)*(h+y)*(k_d+x)*(k_e+x)/(k_d+x) + (p*y*z)*(h+y)*(k_d+x)*(k_e+x)/(h+y)
+dzdt = s_0 - d_0*z + (b_e*x*z)/(k_e+x) - (d_e*x*z)/(k_d+x) + (p*y*z)/(h+y)
 
-solve_poly_system([dxdt, dydt, dvdt, dzdt], x,y,v,z)
+#solve_poly_system([dxdt, dydt, dvdt, dzdt], x,y,v,z)
