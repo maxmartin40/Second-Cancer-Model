@@ -7,7 +7,7 @@ r, x, b, k, z, s_0, d_0, b_e, k_e, d_e, k_d, bet, y, v, g, a, c, q, sigma, gamm,
 # Define parameter values as discussed in Section 5.1
 b=1.02*10**(-9); a=1.333; c=1.8; q=100; d=2; gamm=1.5
 sigma=1.83; p=2.4*10**(-4); h=5*10**4; g=10**5; s=5*10**3
-bet=6*10**(-6); d_e=2; b_e=1, k_e=5*10**2; k_d=2.5*10**4
+bet=6*10**(-6); d_e=2; b_e=1; k_e=5*10**2; k_d=2.5*10**4
 r =0.514
 
 # Define model 2.1 in Wei paper
