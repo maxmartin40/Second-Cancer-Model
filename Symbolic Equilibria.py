@@ -1,5 +1,6 @@
 from sympy import roots, solve_poly_system
 from sympy import *
+import numpy as np
 
 # Define symbols
 r, x, b, k, z, s_0, d_0, b_e, k_e, d_e, k_d, bet, y, v, g, a, c, q, sigma, gamm, p, h = symbols('r x b k z s_0 d_0 b_e k_e d_e k_d bet y v g a c q sigma gamm p h')
@@ -17,3 +18,11 @@ dvdt = q*a*y - sigma*v - gamm*v*z
 dzdt = s_0 - d_0*z + (b_e*x*z)/(k_e+x) - (d_e*x*z)/(k_d+x) + (p*y*z)/(h+y)
 
 #solve_poly_system([dxdt, dydt, dvdt, dzdt], x,y,v,z)
+
+coeff0 = a*sigma*(g+x) - a*bet*q*x
+coeff1 = (g+x)*(a*gamm+c*sigma)
+coeff2 = c*gamm*(g+x)
+
+z_coeff = [coeff2, coeff1, coeff0]
+z_1, z_2 = np.roots(z_coeff)
+print(z_1, z_2)
