@@ -15,7 +15,7 @@ def F(z, k, d_e):
     qty = s_0 - d_0*z + (b_e*(r-k*z)/(b*r)*z)/(k_e+(r-k*z)/(b*r)) - (d_e*(r-k*z)/(b*r)*z)/(k_d+(r-k*z)/(b*r))
     return qty
 
-def find_equilibria_2(num_starts=2500, bounda=1000, boundb=5500):
+def find_equilibria_2(num_starts=25000, bounda=0, boundb=5500):
     # Initialize lists
     roots = []
     message_list = []
@@ -45,7 +45,7 @@ d_e_y = equilibria[1]
 k_x = equilibria[0]
 plt.plot(k_x,d_e_y, '.')
 plt.xlabel('k')
-plt.ylabel('z')
+plt.ylabel('d_e')
 #plt.title("Recreation of Figure A1 (Garcia paper)")
 plt.ylim(0,5000)
 plt.grid(True)
