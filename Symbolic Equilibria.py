@@ -9,3 +9,5 @@ dxdt = r*x*(1-b*(x+y)) - (B*x*v)/(g+x) - k*x*z
 dydt = (B*x*v)/(g+x) - a*y - c*y*z
 dvdt = q*a*y - sigma*v - gamm*v*z
 dzdt = s_0 - d_0*z + (b_e*x*z)/(k_e+x) - (d_e*x*z)/(k_d+x) + (p*y*z)/(h+y)
+
+solve_poly_system([dxdt, dydt, dvdt, dzdt], x,y,v,z)
