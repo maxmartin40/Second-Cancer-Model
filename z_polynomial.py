@@ -22,6 +22,13 @@ dz_dt_a = dz_dt.subs(x,x_1)
 dz_dt_b = dz_dt_a.subs(y,y_1)
 dz_dt_c = dz_dt_b.subs(v,v_1)
 
-# dz_dt_c now represents Equation 4 (see work) that is fully substituted in so we need to try and factor and get a polynomial
+# Define values for constants
+# b=1.02*10**(-9); a=1.333; c=1.8; q=100; d=2; gamm=1.5
+# sigma=1.83; p=2.4*10**(-4); h=5*10**4; g=10**5; s=5*10**3
+# bet=6*10**(-6); d_e=2; b_e=1; k_e=5*10**2; k_d=2.5*10**4
+# r =0.514
 
-print(simplify(expand(dz_dt_c)))
+# Substitute in values for constants
+dz_dt_poly = dz_dt_c.subs({b:1.02*10**(-9), a:1.333, c:1.8, q:100, d:1.83, gamm:1.5, h:5*10**4, g:10**5, bet:6*10**(-6), d_e:2, b_e:1, k_e:5*10**2, k_d:2.5*10**4, r:0.514, p:2.4*10**(-4), d_0:2, k:0.5})
+
+print(dz_dt_poly)
