@@ -28,7 +28,10 @@ dz_dt_c = dz_dt_b.subs(v,v_1)
 # bet=6*10**(-6); d_e=2; b_e=1; k_e=5*10**2; k_d=2.5*10**4
 # r =0.514
 
-# Substitute in values for constants
-dz_dt_poly = dz_dt_c.subs({b:1.02*10**(-9), a:1.333, c:1.8, q:100, d:1.83, gamm:1.5, h:5*10**4, g:10**5, bet:6*10**(-6), d_e:2, b_e:1, k_e:5*10**2, k_d:2.5*10**4, r:0.514, p:2.4*10**(-4), d_0:2, k:0.5})
+# Substitute in values for constants, not all constant values are valid
+dz_dt_poly = dz_dt_c.subs({b:1.02*10**(-9), a:1.333, c:1.8, q:100, d:1.83, gamm:1.5, h:5*10**4, g:10**5, bet:6*10**(-6), d_e:2, b_e:1, k_e:5*10**2, k_d:2.5*10**4, r:0.514, p:2.4*10**(-4), d_0:2, k:0.5, s_0:3})
 
-print(dz_dt_poly)
+dz_dt_expanded = simplify(expand(dz_dt_poly))
+
+dz_dt_collected = collect(dz_dt_expanded, z)
+print(dz_dt_collected)
