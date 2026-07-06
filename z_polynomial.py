@@ -21,3 +21,7 @@ dz_dt = s_0 - d_0*z + (b_e*x*z)/(k_e+x) - (d_e*x*z)/(k_d+x) + (p*y*z)/(h+y)
 dz_dt_a = dz_dt.subs(x,x_1)
 dz_dt_b = dz_dt_a.subs(y,y_1)
 dz_dt_c = dz_dt_b.subs(v,v_1)
+
+# dz_dt_c now represents Equation 4 (see work) that is fully substituted in so we need to try and factor and get a polynomial
+
+print(simplify(expand(dz_dt_c)))
