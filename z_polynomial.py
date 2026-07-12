@@ -15,7 +15,7 @@ y_1 = (-bet**2*r+bet**4*v+c*k*bet**2*z+c**2*r*z-c**2*bet**2*v*z-c**3*k*z**2)/(b*
 numerator_v = a*bet**2*r*q-bet**2*r-c*a*k*bet**2*z*q+c*k*bet**2*z-c**2*a*r*z*q+c**2*r*z+c**3*a*k*z**2*q-c**3*k*z**2-c*q*bet**2*r*z+c**2*g*k*bet**2*z**2-c*a*g*r*z+c**2*a*g*k*z**2+c**3*g*r*z**2-c**4*g*k*z**3
 denominator_v = a*bet**4*q-bet**4-c**2*a*bet*z*q+c**2*bet*z+b*d*bet**2*r+a*b*d*r-c**2*b*d*r*z-c*gamm*bet**4*z-c*a*gamm*bet**2*z+c**3*gamm*bet**2*z**2
 v_1 = numerator_v/denominator_v
-dz_dt = s_0 - d_0*z + (b_e*x*z)/(k_e+x) - (d_e*x*z)/(k_d+x) + (p*y*z)/(h+y)
+dz_dt = s_0 - d_0*z + (b_e*z*x)/(k_e+x) - (d_e*x*z)/(k_d+x) + (p*y*z)/(h+y)
 
 # Substitute in new expressions for x, y, and v
 dz_dt_a = dz_dt.subs(x,x_1)
@@ -29,9 +29,6 @@ dz_dt_c = dz_dt_b.subs(v,v_1)
 # r =0.514
 
 # Substitute in values for constants, not all constant values are valid
-dz_dt_poly = dz_dt_c.subs({b:1.02*10**(-9), a:1.333, c:1.8, q:100, d:1.83, gamm:1.5, h:5*10**4, g:10**5, bet:6*10**(-6), d_e:2, b_e:1, k_e:5*10**2, k_d:2.5*10**4, r:0.514, p:2.4*10**(-4), d_0:2, k:0.5, s_0:3})
+#dz_dt_poly = dz_dt_c.subs({b:1.02*10**(-9), a:1.333, c:1.8, q:100, d:1.83, gamm:1.5, h:5*10**4, g:10**5, bet:6*10**(-6), d_e:2, b_e:1, k_e:5*10**2, k_d:2.5*10**4, r:0.514, p:2.4*10**(-4), d_0:2, k:0.5, s_0:3})
 
-dz_dt_expanded = simplify(expand(dz_dt_poly))
-
-dz_dt_collected = collect(dz_dt_expanded, z)
-print(dz_dt_collected)
+print(expand(dz_dt*(k_e+x)))
